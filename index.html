@@ -257,11 +257,11 @@ footer{text-align:center;margin-top:44px;font-size:11px;color:var(--ink-soft);fo
 <div class="wavy"></div>
 
 <!-- STATUS -->
-<div class="stat-wrap">
+<div class="stat-wrap" style="display:none">
   <div class="stat-pill">
     <div class="dot" id="dot"></div>
     <span id="statMsg">Đang tải dữ liệu...</span>
-    <span id="statTime" style="color:#a8edcc;font-size:11px"></span>
+
   </div>
 </div>
 
@@ -483,7 +483,6 @@ function searchStudent(val){
         <div>
           <div class="sr-name">${found.name}</div>
           <div class="sr-detail">Điểm: <strong>${found.score}</strong> &nbsp;·&nbsp; Điểm Dứa: <strong>${found.total}</strong></div>
-          <div class="sr-detail" style="margin-top:3px">HX điểm: ${found.rankS} &nbsp;·&nbsp; HX giờ: ${found.rankT}</div>
         </div>
       </div>`;
   } else {
