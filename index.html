@@ -129,43 +129,63 @@ header{text-align:center;margin-bottom:28px;}
 .sr-detail{font-size:12px;color:var(--ink-soft);font-weight:600;}
 .sr-not-found{font-size:14px;font-weight:700;color:#e05050;text-align:center;padding:8px 0;}
 
-/* PODIUM */
-.pod-section{margin-bottom:32px;}
-.pod-title{font-family:'Baloo 2',Arial,sans-serif;font-size:18px;text-align:center;
-  color:var(--green-dark);margin-bottom:18px;}
-.podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;}
-.pi{flex:1;max-width:200px;text-align:center;}
-.pi.p1{order:2;}.pi.p2{order:1;}.pi.p3{order:3;}
-.pbub{border-radius:22px;padding:18px 10px 6px;transition:transform .3s;cursor:default;}
-.pi:hover .pbub{transform:translateY(-7px);}
-.p1 .pbub{background:linear-gradient(160deg,#fff9d0,#ffe566,#ffd93d);
-  box-shadow:0 10px 32px rgba(212,160,16,.45),0 2px 0 #c49000;border:3px solid #ffd93d;}
-.p2 .pbub{background:linear-gradient(160deg,#edfaf2,#c2f0d8,#78dba8);
-  box-shadow:0 8px 24px rgba(42,157,110,.35),0 2px 0 #228a5a;border:3px solid #78dba8;}
-.p3 .pbub{background:linear-gradient(160deg,#f5fff0,#d4f5de,#a8edcc);
-  box-shadow:0 6px 20px rgba(78,203,149,.3),0 2px 0 #3baa72;border:3px solid #a8edcc;}
-.pmed{font-size:38px;display:block;margin-bottom:6px;animation:mr 2.5s ease-in-out infinite;}
-.p1 .pmed{font-size:50px;}
-@keyframes mr{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.1)}}
-.pav{width:60px;height:60px;border-radius:50%;margin:0 auto 8px;
+/* BẢNG DANH VỌNG */
+.glory-section{margin-bottom:28px;}
+.glory-title{font-family:'Baloo 2',Arial,sans-serif;font-size:18px;text-align:center;
+  color:var(--green-dark);margin-bottom:14px;}
+.glory-list{display:flex;flex-direction:column;gap:10px;}
+.glory-row{
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:center;gap:14px;padding:16px 20px;border-radius:20px;
+  position:relative;overflow:hidden;
+  transition:transform .2s,box-shadow .2s;cursor:default;}
+.glory-row:hover{transform:translateY(-3px) scale(1.01);}
+/* Hạng 1 - vàng */
+.gr1{background:linear-gradient(135deg,#fffbe0,#fff3a3,#ffe566);
+  border:2.5px solid #ffd93d;box-shadow:0 6px 24px rgba(212,160,16,.4),0 2px 0 #c49000;}
+.gr1::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(255,215,0,.25) 0%,transparent 60%);pointer-events:none;}
+/* Hạng 2 - xanh đậm */
+.gr2{background:linear-gradient(135deg,#e8f8f0,#c2f0d8,#9de8c0);
+  border:2.5px solid #78dba8;box-shadow:0 5px 20px rgba(42,157,110,.35),0 2px 0 #228a5a;}
+.gr2::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(78,203,149,.2) 0%,transparent 60%);pointer-events:none;}
+/* Hạng 3 - xanh nhạt */
+.gr3{background:linear-gradient(135deg,#f0fbf5,#d4f5de,#b8eece);
+  border:2.5px solid #a8edcc;box-shadow:0 4px 16px rgba(78,203,149,.3),0 2px 0 #3baa72;}
+.gr3::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(168,237,204,.2) 0%,transparent 60%);pointer-events:none;}
+/* Medal badge */
+.gmed{font-size:36px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.2));
+  animation:mr 2.5s ease-in-out infinite;flex-shrink:0;}
+.gr1 .gmed{font-size:42px;}
+@keyframes mr{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.08)}}
+/* Tên & huy chương */
+.gname-wrap{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.gname{font-family:'Baloo 2',Arial,sans-serif;font-weight:800;
+  font-size:clamp(14px,2.5vw,17px);color:var(--ink);}
+.gr1 .gname{font-size:clamp(15px,3vw,19px);color:#7a5000;}
+.gr2 .gname{color:#1a5c3a;}.gr3 .gname{color:#2d7a50;}
+.gbadge{display:inline-flex;align-items:center;justify-content:center;
+  font-family:'Baloo 2',Arial,sans-serif;font-size:11px;font-weight:900;
+  width:22px;height:22px;border-radius:50%;color:#fff;flex-shrink:0;}
+.gr1 .gbadge{background:linear-gradient(135deg,#f5c518,#e6a800);box-shadow:0 2px 6px rgba(230,168,0,.5);}
+.gr2 .gbadge{background:linear-gradient(135deg,#2a9d6e,#1a6b4a);box-shadow:0 2px 6px rgba(42,157,110,.4);}
+.gr3 .gbadge{background:linear-gradient(135deg,#4ecb95,#2a9d6e);box-shadow:0 2px 6px rgba(78,203,149,.4);}
+.gsub{font-size:11px;font-weight:600;color:var(--ink-soft);display:flex;gap:10px;flex-wrap:wrap;}
+/* Điểm Dứa nổi bật bên phải */
+.gdua{text-align:right;flex-shrink:0;}
+.gdua-num{font-family:'Baloo 2',Arial,sans-serif;font-weight:800;
+  font-size:clamp(22px,4vw,30px);line-height:1;}
+.gr1 .gdua-num{color:#b87800;text-shadow:0 2px 8px rgba(184,120,0,.3);}
+.gr2 .gdua-num{color:#1a6b4a;text-shadow:0 2px 8px rgba(26,107,74,.2);}
+.gr3 .gdua-num{color:#2a9d6e;text-shadow:0 2px 8px rgba(42,157,110,.2);}
+.gdua-label{font-size:10px;font-weight:700;color:var(--ink-soft);
+  text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+/* Dải sọc rank number */
+.grand{position:absolute;right:0;top:0;bottom:0;width:44px;
   display:flex;align-items:center;justify-content:center;
-  font-family:'Baloo 2',Arial,sans-serif;font-size:20px;font-weight:800;color:#fff;}
-.p1 .pav{width:74px;height:74px;font-size:26px;
-  background:linear-gradient(135deg,#f5c518,#ff9a00);box-shadow:0 4px 18px rgba(245,197,24,.6);}
-.p2 .pav{background:linear-gradient(135deg,#2a9d6e,#1a6b4a);box-shadow:0 4px 14px rgba(42,157,110,.5);}
-.p3 .pav{background:linear-gradient(135deg,#4ecb95,#2a9d6e);box-shadow:0 4px 14px rgba(78,203,149,.5);}
-.pname{font-family:'Baloo 2',Arial,sans-serif;font-size:clamp(12px,2vw,14px);
-  margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.p1 .pname{color:#7a5000;font-size:clamp(13px,2.5vw,16px);}
-.p2 .pname{color:#1a5c3a;}.p3 .pname{color:#2d7a50;}
-.pscore{font-family:'Baloo 2',Arial,sans-serif;font-size:20px;}
-.p1 .pscore{font-size:26px;color:#7a5000;}.p2 .pscore{color:#1a5c3a;}.p3 .pscore{color:#2d7a50;}
-.pdiem{font-size:10px;font-weight:700;color:rgba(30,80,50,.55);margin-top:2px;}
-.pbase{height:26px;border-radius:0 0 12px 12px;display:flex;align-items:center;justify-content:center;
-  font-family:'Baloo 2',Arial,sans-serif;font-size:22px;font-weight:800;margin:-1px -3px -3px;}
-.p1 .pbase{background:#c49000;color:#fff;height:34px;font-size:28px;}
-.p2 .pbase{background:#1a7a4a;color:#fff;}
-.p3 .pbase{background:#3baa72;color:#fff;}
+  font-family:'Baloo 2',Arial,sans-serif;font-size:11px;font-weight:800;opacity:.12;color:var(--ink);}
 
 /* TABLE */
 .sec-title{font-family:'Baloo 2',Arial,sans-serif;font-size:17px;color:var(--green-dark);
@@ -280,11 +300,11 @@ footer{text-align:center;margin-top:44px;font-size:11px;color:var(--ink-soft);fo
   <button class="ftab" id="tab20" onclick="setFilter(20)">🌟 Top 20</button>
 </div>
 
-<!-- PODIUM -->
+<!-- BẢNG DANH VỌNG -->
 <div id="podSec" style="display:none">
-  <div class="pod-section">
-    <div class="pod-title">✨ Top 3 Chiến Binh Xuất Sắc ✨</div>
-    <div class="podium" id="podium"></div>
+  <div class="glory-section">
+    <div class="glory-title">✨ Bảng Danh Vọng ✨</div>
+    <div class="glory-list" id="podium"></div>
   </div>
   <div class="wavy"></div>
   <div class="sec-title" id="secTitle">🍍 Bảng Xếp Hạng Top 10</div>
@@ -312,7 +332,7 @@ footer{text-align:center;margin-top:44px;font-size:11px;color:var(--ink-soft);fo
 // CẤU HÌNH – CHỈ SỬA Ở ĐÂY
 // ══════════════════════════════════════
 const SHEET_ID  = '1PpgQjWvuUeGUZah2BggHWlK-afuSCT_Cj430aaUKzSI';
-const SHEET_TAB = 'Bảng xếp hạng';
+const SHEET_TAB = 'Điểm Dứa';
 // Thứ tự cột (0 = cột A, 1 = cột B, ...)
 const COL_ID    = 0;  // Email        (cột A)
 const COL_NAME  = 1;  // Tên học viên (cột B)
@@ -430,14 +450,10 @@ function render(){
   document.getElementById('podSec').style.display='';
   document.getElementById('secTitle').textContent='🍍 Bảng Xếp Hạng Top '+curFilter;
 
-  // PODIUM top 3
+  // BẢNG DANH VỌNG top 3
   const top3=allData.slice(0,3);
   const medals=['🥇','🥈','🥉'];
-  document.getElementById('podium').innerHTML=[
-    top3[1]?podCard(top3[1],2,medals[1]):'<div class="pi p2"></div>',
-    top3[0]?podCard(top3[0],1,medals[0]):'<div class="pi p1"></div>',
-    top3[2]?podCard(top3[2],3,medals[2]):'<div class="pi p3"></div>',
-  ].join('');
+  document.getElementById('podium').innerHTML=top3.map((s,i)=>podCard(s,i+1,medals[i])).join('');
 
   // TABLE: hiện từ hạng 4 đến top N
   const shown=allData.slice(3, curFilter);
@@ -447,17 +463,24 @@ function render(){
 }
 
 function podCard(s,r,med){
-  const cl=['','p1','p2','p3'][r];
-  const ab=avatarBgs[(r-1)%avatarBgs.length];
-  return `<div class="pi ${cl}"><div class="pbub">
-    <span class="pmed">${med}</span>
-    <div class="pav" style="background:linear-gradient(135deg,${ab[0]},${ab[1]})">${ini(s.name)}</div>
-    <div class="pname">${s.name}</div>
-    <div class="pscore">${s.score} điểm</div>
-    <div class="pdiem">📊 Hoàn thành: <strong>${s.rate}%</strong></div>
-    <div class="pdiem" style="margin-top:3px">🍍 Điểm Dứa: <strong>${s.total.toFixed(2)}</strong></div>
-    <div class="pbase">${s.rank}</div>
-  </div></div>`;
+  const cl=['','gr1','gr2','gr3'][r];
+  return `<div class="glory-row ${cl}">
+    <div class="gmed">${med}</div>
+    <div>
+      <div class="gname-wrap">
+        <span class="gbadge">${s.rank}</span>
+        <span class="gname">${s.name}</span>
+      </div>
+      <div class="gsub">
+        <span>📊 <strong>${s.score}</strong> điểm</span>
+        <span>✅ Hoàn thành <strong>${s.rate}%</strong></span>
+      </div>
+    </div>
+    <div class="gdua">
+      <div class="gdua-num">${s.total.toFixed(2)}</div>
+      <div class="gdua-label">Điểm Dứa</div>
+    </div>
+  </div>`;
 }
 
 function mkRow(s,i){
