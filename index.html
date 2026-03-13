@@ -190,16 +190,23 @@ header{text-align:center;margin-bottom:28px;}
 /* TABLE */
 .sec-title{font-family:'Baloo 2',Arial,sans-serif;font-size:17px;color:var(--green-dark);
   margin-bottom:10px;display:flex;align-items:center;gap:8px;}
-.bh{display:grid;grid-template-columns:60px 1fr 80px 80px 90px;gap:8px;
+.bh{display:grid;grid-template-columns:60px 1fr 110px;gap:8px;
   padding:8px 18px;font-size:11px;font-weight:800;color:var(--ink-soft);
   letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
 .bh>*:not(:nth-child(2)){text-align:center;}
 .lb{display:flex;flex-direction:column;gap:7px;}
-.row{display:grid;grid-template-columns:60px 1fr 80px 80px 90px;gap:8px;align-items:center;
-  padding:13px 18px;background:rgba(255,255,255,.82);backdrop-filter:blur(6px);
+.row{display:grid;grid-template-columns:60px 1fr 110px;gap:8px;align-items:center;
+  padding:13px 18px;background:rgba(255,255,255,.75);backdrop-filter:blur(6px);
   border-radius:18px;box-shadow:0 3px 14px var(--shadow);
-  border:1.5px solid rgba(168,237,204,.5);transition:all .22s cubic-bezier(.34,1.56,.64,1);
+  border:1.5px solid rgba(168,237,204,.4);transition:all .22s cubic-bezier(.34,1.56,.64,1);
   position:relative;overflow:hidden;animation:rp .35s cubic-bezier(.34,1.56,.64,1) both;}
+/* Màu nền theo hạng */
+.row-r1{background:linear-gradient(135deg,#fffbe0,#fff3a3,#ffe566)!important;
+  border-color:#ffd93d!important;box-shadow:0 6px 24px rgba(212,160,16,.35),0 2px 0 #c49000!important;}
+.row-r2{background:linear-gradient(135deg,#e8f8f0,#c2f0d8,#9de8c0)!important;
+  border-color:#78dba8!important;box-shadow:0 5px 20px rgba(42,157,110,.3),0 2px 0 #228a5a!important;}
+.row-r3{background:linear-gradient(135deg,#f0fbf5,#d4f5de,#b8eece)!important;
+  border-color:#a8edcc!important;box-shadow:0 4px 16px rgba(78,203,149,.25),0 2px 0 #3baa72!important;}
 @keyframes rp{from{opacity:0;transform:scale(.93) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
 .row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
   border-radius:18px 0 0 18px;transition:background .2s;}
@@ -212,6 +219,17 @@ header{text-align:center;margin-bottom:28px;}
 .rbadge{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   font-family:'Baloo 2',Arial,sans-serif;font-size:15px;font-weight:800;margin:0 auto;
   background:rgba(168,237,204,.4);color:var(--green-dark);}
+.rbadge.r1{background:linear-gradient(135deg,#f5c518,#e6a800);color:#fff;box-shadow:0 2px 8px rgba(230,168,0,.5);}
+.rbadge.r2{background:linear-gradient(135deg,#2a9d6e,#1a6b4a);color:#fff;box-shadow:0 2px 8px rgba(42,157,110,.4);}
+.rbadge.r3{background:linear-gradient(135deg,#4ecb95,#2a9d6e);color:#fff;box-shadow:0 2px 8px rgba(78,203,149,.4);}
+.tpill-rank{display:inline-flex;align-items:center;justify-content:center;
+  padding:6px 12px;border-radius:50px;font-family:'Baloo 2',Arial,sans-serif;font-weight:800;
+  min-width:80px;font-size:16px;background:linear-gradient(135deg,var(--green-pale),var(--yellow-light));
+  color:var(--green-dark);box-shadow:0 2px 6px rgba(42,157,110,.2);}
+.tpill-rank.r1{background:linear-gradient(135deg,#ffd93d,#f5c518);color:#7a5000;font-size:20px;
+  box-shadow:0 3px 12px rgba(212,160,16,.4);}
+.tpill-rank.r2{background:linear-gradient(135deg,#78dba8,#2a9d6e);color:#fff;font-size:18px;}
+.tpill-rank.r3{background:linear-gradient(135deg,#a8edcc,#4ecb95);color:#1a6b4a;font-size:17px;}
 .nc{overflow:hidden;}
 .nt{font-weight:800;font-size:clamp(13px,2vw,15px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink);}
 .ns{font-size:10px;font-weight:600;color:var(--ink-soft);margin-top:1px;}
@@ -235,7 +253,7 @@ header{text-align:center;margin-bottom:28px;}
 footer{text-align:center;margin-top:44px;font-size:11px;color:var(--ink-soft);font-weight:700;}
 
 @media(max-width:600px){
-  .bh,.row{grid-template-columns:48px 1fr 60px 60px 72px;padding:11px 12px;gap:5px;}
+  .bh,.row{grid-template-columns:48px 1fr 90px;padding:11px 12px;gap:5px;}
   .podium{gap:7px;}
   .refresh-btn span{display:none;}
 }
@@ -300,18 +318,9 @@ footer{text-align:center;margin-top:44px;font-size:11px;color:var(--ink-soft);fo
   <button class="ftab" id="tab20" onclick="setFilter(20)">🌟 Top 20</button>
 </div>
 
-<!-- BẢNG DANH VỌNG -->
+<!-- BẢNG XẾP HẠNG DUY NHẤT -->
 <div id="podSec" style="display:none">
-  <div class="glory-section">
-    <div class="glory-title">✨ Bảng Danh Vọng ✨</div>
-    <div class="glory-list" id="podium"></div>
-  </div>
-  <div class="wavy"></div>
   <div class="sec-title" id="secTitle">🍍 Bảng Xếp Hạng Top 10</div>
-  <div class="bh">
-    <span>Hạng</span><span>Học Viên</span>
-    <span>Điểm</span><span>Tỷ lệ HT</span><span>Điểm Dứa</span>
-  </div>
 </div>
 
 <div class="lb" id="board">
@@ -332,7 +341,7 @@ footer{text-align:center;margin-top:44px;font-size:11px;color:var(--ink-soft);fo
 // CẤU HÌNH – CHỈ SỬA Ở ĐÂY
 // ══════════════════════════════════════
 const SHEET_ID  = '1PpgQjWvuUeGUZah2BggHWlK-afuSCT_Cj430aaUKzSI';
-const SHEET_TAB = 'Bảng xếp hạng';
+const SHEET_TAB = 'Điểm Dứa';
 // Thứ tự cột (0 = cột A, 1 = cột B, ...)
 const COL_ID    = 0;  // Email        (cột A)
 const COL_NAME  = 1;  // Tên học viên (cột B)
@@ -450,16 +459,11 @@ function render(){
   document.getElementById('podSec').style.display='';
   document.getElementById('secTitle').textContent='🍍 Bảng Xếp Hạng Top '+curFilter;
 
-  // BẢNG DANH VỌNG top 3
-  const top3=allData.slice(0,3);
-  const medals=['🥇','🥈','🥉'];
-  document.getElementById('podium').innerHTML=top3.map((s,i)=>podCard(s,i+1,medals[i])).join('');
-
-  // TABLE: hiện từ hạng 4 đến top N
-  const shown=allData.slice(3, curFilter);
+  // TẤT CẢ trong 1 bảng, top N người
+  const shown=allData.slice(0, curFilter);
   document.getElementById('board').innerHTML=shown.length
     ? shown.map((s,i)=>mkRow(s,i)).join('')
-    : '<div style="text-align:center;padding:20px;color:var(--ink-soft);font-weight:700">Không có thêm dữ liệu</div>';
+    : '<div style="text-align:center;padding:20px;color:var(--ink-soft);font-weight:700">Không có dữ liệu</div>';
 }
 
 function podCard(s,r,med){
@@ -485,15 +489,19 @@ function podCard(s,r,med){
 
 function mkRow(s,i){
   const delay=(i*0.04)+'s';
-  const sameRank=i>0&&allData[i+3].rank===allData[i+2].rank?'same-rank':'';
-  return `<div class="row ${sameRank}" style="animation-delay:${delay}">
-    <div><div class="rbadge">${s.rank}</div></div>
+  const medals=['🥇','🥈','🥉'];
+  const rankClass = s.rank===1?'row-r1':s.rank===2?'row-r2':s.rank===3?'row-r3':'';
+  const medal = s.rank<=3 ? `<span style="font-size:20px;margin-left:4px">${medals[s.rank-1]}</span>` : '';
+  return `<div class="row ${rankClass}" style="animation-delay:${delay}">
+    <div><div class="rbadge r${Math.min(s.rank,4)}">${s.rank}</div></div>
     <div class="nc">
-      <div class="nt">${s.name}</div>
+      <div class="nt">${s.name}${medal}</div>
+      <div class="gsub" style="margin-top:2px">
+        <span>📊 <strong>${s.score}</strong> đ</span>
+        <span>✅ <strong>${s.rate}%</strong></span>
+      </div>
     </div>
-    <div class="cv cv-score">${s.score}</div>
-    <div class="cv" style="font-size:12px">${s.rate}%</div>
-    <div class="cv"><div class="tpill">${s.total.toFixed(2)}</div></div>
+    <div class="cv"><div class="tpill-rank r${Math.min(s.rank,4)}">${s.total.toFixed(2)}</div></div>
   </div>`;
 }
 
