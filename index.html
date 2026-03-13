@@ -202,12 +202,21 @@ header{text-align:center;margin-bottom:28px;}
   position:relative;overflow:hidden;animation:rp .35s cubic-bezier(.34,1.56,.64,1) both;}
 /* Màu nền theo hạng */
 .row-r1{background:linear-gradient(135deg,#fffbe0,#fff3a3,#ffe566)!important;
-  border-color:#ffd93d!important;box-shadow:0 6px 24px rgba(212,160,16,.35),0 2px 0 #c49000!important;}
+  border-color:#ffd93d!important;box-shadow:0 8px 28px rgba(212,160,16,.45),0 3px 0 #c49000!important;
+  padding:18px 22px!important;}
 .row-r2{background:linear-gradient(135deg,#e8f8f0,#c2f0d8,#9de8c0)!important;
-  border-color:#78dba8!important;box-shadow:0 5px 20px rgba(42,157,110,.3),0 2px 0 #228a5a!important;}
+  border-color:#78dba8!important;box-shadow:0 6px 22px rgba(42,157,110,.35),0 2px 0 #228a5a!important;
+  padding:15px 20px!important;}
 .row-r3{background:linear-gradient(135deg,#f0fbf5,#d4f5de,#b8eece)!important;
   border-color:#a8edcc!important;box-shadow:0 4px 16px rgba(78,203,149,.25),0 2px 0 #3baa72!important;}
 @keyframes rp{from{opacity:0;transform:scale(.93) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+/* Scale theo hạng */
+.row-r1{transform:scale(1.045);transform-origin:center;}
+.row-r1:hover{transform:scale(1.055) translateY(-3px)!important;}
+.row-r2{transform:scale(1.025);transform-origin:center;}
+.row-r2:hover{transform:scale(1.035) translateY(-3px)!important;}
+.row-r3{transform:scale(1.01);transform-origin:center;}
+.row-r3:hover{transform:scale(1.02) translateY(-3px)!important;}
 .row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
   border-radius:18px 0 0 18px;transition:background .2s;}
 .row:hover{transform:translateY(-3px) scale(1.01);box-shadow:0 8px 24px var(--shadow);
@@ -232,6 +241,8 @@ header{text-align:center;margin-bottom:28px;}
 .tpill-rank.r3{background:linear-gradient(135deg,#a8edcc,#4ecb95);color:#1a6b4a;font-size:17px;}
 .nc{overflow:hidden;}
 .nt{font-weight:800;font-size:clamp(13px,2vw,15px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink);}
+.row-r1 .nt{font-size:clamp(15px,2.5vw,18px)!important;}
+.row-r2 .nt{font-size:clamp(14px,2.2vw,16px)!important;}
 .ns{font-size:10px;font-weight:600;color:var(--ink-soft);margin-top:1px;}
 .cv{text-align:center;font-size:14px;font-weight:800;color:var(--ink-soft);}
 .cv-score{font-family:'Baloo 2',Arial,sans-serif;font-size:17px;color:var(--green-dark);}
